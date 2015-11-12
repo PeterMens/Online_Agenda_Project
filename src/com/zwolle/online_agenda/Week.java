@@ -1,20 +1,40 @@
 package com.zwolle.online_agenda;
 
+import java.util.ArrayList;
+
 public class Week {
 
-	private int weeknumber;
-	private int year;
+	private int weekNumber;
+	private ArrayList<String> days;
 	
-	public Week(int number, int year){
-		this.weeknumber = number;
-		this.year = year;
+	
+	public Week(int weekNumber){
+		
+		this.weekNumber = weekNumber;
+		days = new ArrayList<String>();
+		
+	}
+
+
+	public int getWeekNumber() {
+		return weekNumber;
+	}
+
+
+	public void setWeeknumber(int weekNumber) {
+		this.weekNumber = weekNumber;
+	}
+
+
+	public ArrayList<String> getDays() {
+		return days;
+	}
+
+
+	public void setDays(ArrayList<String> days) {
+		this.days = days;
 	}
 	
-	public int getFirstDate(){
-		// return bijv. 15 
-		// met gebruik van yodatime
-		// gegeven this.weeknumber en this.year
-	}
 	
 	
 }

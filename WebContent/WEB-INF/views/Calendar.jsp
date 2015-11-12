@@ -28,10 +28,10 @@
 			<td height="30" width="100"><p align="center"><b>Saturday</b></p></td>
 		</tr>
 		
-		<c:forEach items="${weken}" var="weekNumber">
+		<c:forEach items="${month}" var="week">
 			<tr>
-				<td height="30" width="100"><p align="center"><b>${weekNumber}</b></p></td>
-				<c:forEach items="${dagen}" var="dayOfWeeks">
+				<td height="30" width="100"><p align="center"><b>${week.weekNumber}</b></p></td>
+				<c:forEach items="${week.days}" var="dayOfWeeks">
 					<td height="30" width="100"><p align="center"><b>${dayOfWeeks}</b></p></td>
 				</c:forEach>
 			</tr>

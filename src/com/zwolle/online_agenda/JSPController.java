@@ -19,13 +19,12 @@ public class JSPController {
 	@RequestMapping("/calendar")
 	public String Calendar (Model model) {
 		Calendar calendar = new Calendar();
-		model.addAttribute("dayOfWeek", calendar.getFirstDayOfMonth());
 		model.addAttribute("realMonth", calendar.setCurrentMonthHeader());
 		
-		int[] weken = { 31, 32, 33, 34 };
-		model.addAttribute("weken", weken);
-		int[] dagen = {1,2,3,4,5,6,7};
-		model.addAttribute("dagen", dagen);
+		PopulateCalendar cal = new PopulateCalendar();
+		model.addAttribute("month", cal.generateMonth());
+		
+		
 		return "Calendar";
 	}
 	

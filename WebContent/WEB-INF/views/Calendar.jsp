@@ -15,7 +15,7 @@
 	
 	<table style="width: 700px; height: 600px; border-right-style: none; border-left-style: none; border-bottom-style: none; background-image: none; background-position: center center; border-top-style: none" align="center" cellspacing="10px" frame="border">
 		<tr>
-			<td height="30" width="100"><p align="center"><b>Week</b></p></td>
+			<!--<td height="30" width="100"><p align="center"><b>Week</b></p></td>-->
 			<td height="30" width="100"><p align="center"><b>Sunday</b></p></td>
 			<td height="30" width="100"><p align="center"><b>Monday</b></p></td>
 			<td height="30" width="100"><p align="center"><b>Tuesday</b></p></td>
@@ -27,7 +27,7 @@
 		
 		<c:forEach items="${month}" var="week">
 			<tr>
-				<td height="30" width="100"><p align="center"><b>${week.weekNumber}</b></p></td>
+				<!--<td height="30" width="100"><p align="center"><b>${week.weekNumber}</b></p></td>--> 
 				<c:forEach items="${week.days}" var="dayOfWeeks">
 					<td height="30" width="100"><p align="center"><b>${dayOfWeeks}</b></p></td>
 				</c:forEach>

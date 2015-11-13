@@ -22,7 +22,7 @@ public class JSPController {
 		
 		model.addAttribute("month", cal.getMonthHeader());
 		model.addAttribute("year", cal.getYearHeader());
-		model.addAttribute("generateMonth", cal.generateMonth());
+		model.addAttribute("generateMonth", cal.generateMonth().getMonth());
 		
 		
 		return "Calendar";

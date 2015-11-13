@@ -10,6 +10,14 @@ public class Month {
 	month = new ArrayList<Week>();
 	
 	}
+
+	public ArrayList<Week> getMonth() {
+		return month;
+	}
+
+	public void setMonth(ArrayList<Week> month) {
+		this.month = month;
+	}
 	
 
 	

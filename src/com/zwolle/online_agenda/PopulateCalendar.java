@@ -79,8 +79,11 @@ public class PopulateCalendar{
 	        int day = 1;
 	   
 	        // Create ArrayList to hold weeks
-	        ArrayList<Week> month = new ArrayList<Week>();
-	        
+	        //ArrayList<Week> month = new ArrayList<Week>();
+	       
+	        //Create instance of Month
+	        Month month = new Month();
+	       
 	        // Week loop, max 6 weeks in a month  
 	        for (int w = 1; w <= 6; w++){
 	        	Week week = new Week(weekNumber);
@@ -112,13 +115,13 @@ public class PopulateCalendar{
 	                	}
 	                }
 
-	        	month.add(week);
+	        	month.getMonth().add(week);
 	        	if (weekNumber == 52){
 	        		weekNumber = 0;
 	        	} weekNumber++;
 	        }
 	        
-	        return month;
+	        return month.getMonth();
 	}
 	
 }

@@ -43,7 +43,9 @@ public class PopulateCalendar{
 		GregorianCalendar calendar = new GregorianCalendar();
 	    calendar.set(GregorianCalendar.DAY_OF_MONTH, 1);
 	    firstDayofMonth = calendar.get(GregorianCalendar.DAY_OF_WEEK);
-	     
+	    firstDayofMonth = (firstDayofMonth-1);
+	    if (firstDayofMonth==0)
+	    	firstDayofMonth = 7;
 	    return firstDayofMonth;
 	}
 	    
@@ -53,6 +55,9 @@ public class PopulateCalendar{
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.set(GregorianCalendar.DAY_OF_MONTH, calendar.getActualMaximum(GregorianCalendar.DAY_OF_MONTH));
 		lastDayofMonth= calendar.get(GregorianCalendar.DAY_OF_WEEK);
+		lastDayofMonth = (lastDayofMonth-1);
+	    if (lastDayofMonth==0)
+	    	lastDayofMonth = 7;
 
 		return lastDayofMonth;
 	}
@@ -90,8 +95,8 @@ public class PopulateCalendar{
 	        // Create ArrayList to hold weeks
 	        ArrayList<Week> month = new ArrayList<Week>();
 	        
-	        // Week loop, max 5 weeks in a month  
-	        for (int w = 1; w <= 5; w++){
+	        // Week loop, max 6 weeks in a month  
+	        for (int w = 1; w <= 6; w++){
 	        	Week week = new Week(weekNumber);
 	        	
 	        	// Weekday loop, max 7 days in week
@@ -100,7 +105,7 @@ public class PopulateCalendar{
 	                // If we are on the last week of the month,
 	                // and we've reached the endDay that we specified,
 	                // break out of loop
-	                if (w == 5 && d == endDayofMonth + 1)
+	                if (w == 6 && d == endDayofMonth + 1)
 	                    break;
 
 	                // These are the empty spaces for the beginning of

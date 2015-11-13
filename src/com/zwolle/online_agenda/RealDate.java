@@ -17,7 +17,6 @@ public class RealDate {
 			realHour = calendar.get(GregorianCalendar.HOUR_OF_DAY); //return hours
 			realMinute = calendar.get(GregorianCalendar.MINUTE); //returns number of minute within hour
 			realSecond = calendar.get(GregorianCalendar.SECOND); //returns number of second within minute
-			
 		}
 
 

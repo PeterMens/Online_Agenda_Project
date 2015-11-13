@@ -62,7 +62,7 @@ public class PopulateCalendar{
 	    
 	
 	//get arrayList of month populated with weeks
-	 public ArrayList<Week> generateMonth(){ 
+	 public Month generateMonth(){ 
 	    
 	    	getFirstDayOfMonth();
 			getLastDayOfMonth();
@@ -72,7 +72,7 @@ public class PopulateCalendar{
 	    
 	 
 	 // String generator to populate arrayList with weekdays
-	 private ArrayList<Week> generateWeeks(int startDayofMonth, int endDayofMonth, int weekNumber)
+	 private Month generateWeeks(int startDayofMonth, int endDayofMonth, int weekNumber)
 	    {
 
 	    	// Keep track of days
@@ -88,8 +88,7 @@ public class PopulateCalendar{
 	      
 	        for (int w = 1; w <= 6; w++){
 	        	
-	        	
-	        	
+	        	//if there is no 6th week in a month, don't make 6 objects.
 	        	if(endDayofMonth + 1 > day){
 		        	Week week = new Week(weekNumber);
 		        		
@@ -128,7 +127,7 @@ public class PopulateCalendar{
 		        }
 	        }
 	        
-	        return month.getMonth();
+	        return month;
 	}
 	
 }

@@ -18,11 +18,12 @@ public class JSPController {
 	//controller for /calendar
 	@RequestMapping("/calendar")
 	public String Calendar (Model model) {
-		PopulateCalendar cal = new PopulateCalendar();
+		PopulateCalendar cal = new PopulateCalendar(1995, 1);
 		
-		model.addAttribute("realMonth", cal.getCurrentMonthHeader());
-		model.addAttribute("realYear", cal.getCurrentYearHeader());
+		model.addAttribute("realMonth", cal.getMonthHeader());
+		model.addAttribute("realYear", cal.getYearHeader());
 		model.addAttribute("month", cal.generateMonth());
+		
 		
 		return "Calendar";
 	}

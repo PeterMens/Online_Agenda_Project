@@ -6,11 +6,13 @@ import java.util.GregorianCalendar;
 public class PopulateCalendar{
 	
 	private int realYear, realMonth, realDay, realHour, realMinute, realSecond, realWeekofYear, realWeekofMonth;
+	private int firstDayofMonth, lastDayofMonth, weekNumber, year, month;
 	private String [] months = {"January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"};
-	private int firstDayofMonth, lastDayofMonth, weekNumber;
+	
 		
 	
 	//get actual date
+	//wordt in deze classe nu niet gebruikt
 	public void getDate (){
 		GregorianCalendar calendar = new GregorianCalendar();
 		
@@ -24,24 +26,30 @@ public class PopulateCalendar{
 		realWeekofMonth = calendar.get(GregorianCalendar.WEEK_OF_MONTH);
 	}
 
+	// Constructor for populating calendar month
+	public PopulateCalendar ( int year, int month){
+		this.month = month-1;
+		this.year = year;
+	}
 	
-		//set header month + year
-	public String getCurrentMonthHeader(){
-		getDate();
-		return months[realMonth];
+	
+	//set header month + year
+	public String getMonthHeader(){
+		return months[month];
 	}
 		
 	
-	public int getCurrentYearHeader(){
-		getDate();
-		return realYear;
+	public int getYearHeader(){
+		return year;
 	}
 
 	    
 	// get first & last day of the current month
 	public int getFirstDayOfMonth(){
 		GregorianCalendar calendar = new GregorianCalendar();
-	    calendar.set(GregorianCalendar.DAY_OF_MONTH, 1);
+		calendar.set(GregorianCalendar.YEAR, year);
+		calendar.set(GregorianCalendar.MONTH, month);
+		calendar.set(GregorianCalendar.DAY_OF_MONTH, 1);
 	    firstDayofMonth = calendar.get(GregorianCalendar.DAY_OF_WEEK);
 	    firstDayofMonth = (firstDayofMonth-1);
 	    if (firstDayofMonth==0)
@@ -53,12 +61,14 @@ public class PopulateCalendar{
 	public int getLastDayOfMonth(){
 			
 		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.set(GregorianCalendar.DAY_OF_MONTH, calendar.getActualMaximum(GregorianCalendar.DAY_OF_MONTH));
-		lastDayofMonth= calendar.get(GregorianCalendar.DAY_OF_WEEK);
-		lastDayofMonth = (lastDayofMonth-1);
-	    if (lastDayofMonth==0)
-	    	lastDayofMonth = 7;
-
+		calendar.set(GregorianCalendar.YEAR, year);
+		calendar.set(GregorianCalendar.MONTH, month);
+		//calendar.set(GregorianCalendar.DAY_OF_MONTH, calendar.getActualMaximum(GregorianCalendar.DAY_OF_MONTH));
+		lastDayofMonth= calendar.getActualMaximum(calendar.DAY_OF_MONTH);
+		//lastDayofMonth = (lastDayofMonth-1);
+	    //if (lastDayofMonth==0)
+	    	//lastDayofMonth = 7;
+	
 		return lastDayofMonth;
 	}
 	 
@@ -66,15 +76,15 @@ public class PopulateCalendar{
 	// get weekNr.
     public int getWeekNumber(){
 	    GregorianCalendar calendar = new GregorianCalendar();
+	    calendar.set(GregorianCalendar.YEAR, year);
+		calendar.set(GregorianCalendar.MONTH, month);
 	    calendar.set(GregorianCalendar.DAY_OF_MONTH, 1);
 	    weekNumber = calendar.get(GregorianCalendar.WEEK_OF_YEAR);
 	    return weekNumber;
     }
 	    
-	// logic to change current month when button nextmonth or lastmonth
-	    
-    
-	    
+	
+ 
 	//get arrayList tot populate week
 	 public ArrayList<Week> generateMonth(){ 
 	    
@@ -105,8 +115,10 @@ public class PopulateCalendar{
 	                // If we are on the last week of the month,
 	                // and we've reached the endDay that we specified,
 	                // break out of loop
-	                if (w == 6 && d == endDayofMonth + 1)
-	                    break;
+	        	
+	        		if (endDayofMonth + 1 == day)
+	                    break; 
+	         
 
 	                // These are the empty spaces for the beginning of
 	                // the first week
@@ -125,7 +137,9 @@ public class PopulateCalendar{
 	                }
 
 	        	month.add(week);
-	        	weekNumber++;
+	        	if (weekNumber == 52){
+	        		weekNumber = 0;
+	        	} weekNumber++;
 	        }
 	        
 	        return month;

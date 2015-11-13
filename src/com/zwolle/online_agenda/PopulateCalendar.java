@@ -85,40 +85,47 @@ public class PopulateCalendar{
 	        Month month = new Month();
 	       
 	        // Week loop, max 6 weeks in a month  
+	      
 	        for (int w = 1; w <= 6; w++){
-	        	Week week = new Week(weekNumber);
 	        	
-	        	// Weekday loop, max 7 days in week
-	        	for (int d = 1; d <= 7; d++) 
-	            {
-	                // If we are on the last week of the month,
-	                // and we've reached the endDay that we specified,
-	                // break out of loop
 	        	
-	        		if (endDayofMonth + 1 == day)
-	                    break; 
-	         
-
-	                // These are the empty spaces for the beginning of
-	                // the first week
-	                if (w == 1 && d < startDayofMonth)
-	                {
-	                    // Just append empty space, then CONTINUE
-	                    // to next iteration (d++)
-	                    week.getDays().add("");
-	                    continue;
-	                }
-	                
-	                // add days of week
-	                else { 
-	                	week.getDays().add(String.valueOf(day++));
-	                	}
-	                }
-
-	        	month.getMonth().add(week);
-	        	if (weekNumber == 52){
-	        		weekNumber = 0;
-	        	} weekNumber++;
+	        	
+	        	if(endDayofMonth + 1 > day){
+		        	Week week = new Week(weekNumber);
+		        		
+		        	// Weekday loop, max 7 days in week
+		        	for (int d = 1; d <= 7; d++) 
+		            {
+		                // If we are on the last week of the month,
+		                // and we've reached the endDay that we specified,
+		                // break out of loop
+		        	
+		        		if (endDayofMonth + 1 == day)
+		                    break; 
+		         
+	
+		                // These are the empty spaces for the beginning of
+		                // the first week
+		                if (w == 1 && d < startDayofMonth)
+		                {
+		                    // Just append empty space, then CONTINUE
+		                    // to next iteration (d++)
+		                    week.getDays().add("");
+		                    continue;
+		                }
+		                
+		                // add days of week
+		                else { 
+		                	week.getDays().add(String.valueOf(day++));
+		                	}
+		                }
+	
+		        	month.getMonth().add(week);
+		        	if (weekNumber == 52){
+		        		weekNumber = 0;
+		        	} 
+		        	weekNumber++;
+		        }
 	        }
 	        
 	        return month.getMonth();

@@ -7,8 +7,9 @@ public class PopulateDatabase {
 	// put month in database
 
 	public void getDate(){
-	
-		
+	RealDate realdate = new RealDate();
+	realdate.getRealYear();
+	realdate.getRealMonth();		
 	}
 	
 }

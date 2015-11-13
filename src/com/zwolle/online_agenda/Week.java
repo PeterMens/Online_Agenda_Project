@@ -11,12 +11,15 @@ public class Week {
 	private int weekNumber;
 	private ArrayList<String> days;
 	
+	public Week(){
+		
+	}
 	
 	public Week(int weekNumber){
-		
 		this.weekNumber = weekNumber;
 		days = new ArrayList<String>();
 	}
+	
 
 	public int getWeekNumber() {
 		return weekNumber;

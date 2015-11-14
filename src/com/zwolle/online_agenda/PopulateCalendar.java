@@ -90,6 +90,7 @@ public class PopulateCalendar{
 	        	
 	        	//if there is no 6th week in a month, don't make 6 objects.
 	        	if(endDayofMonth + 1 > day){
+	        		if(weekNumber > 53){ weekNumber = 1;}
 		        	Week week = new Week(weekNumber);
 		        		
 		        	// Weekday loop, max 7 days in week

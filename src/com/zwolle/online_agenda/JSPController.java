@@ -20,7 +20,7 @@ public class JSPController {
 	public String Calendar (Model model) {
 	
 		
-		PopulateCalendar cal = new PopulateCalendar(2015, 2);
+		PopulateCalendar cal = new PopulateCalendar(2015, 12);
 		
 		model.addAttribute("month", cal.getMonthHeader());
 		model.addAttribute("year", cal.getYearHeader());
@@ -33,7 +33,7 @@ public class JSPController {
 	@RequestMapping("/generate")
 	public @ResponseBody String GenerateDatabase () {
 		PopulateDatabase db = new PopulateDatabase();
-		db.createObjectsOfMonth();
+		db.createObjectsOfMonth(5);
 		
 		return "Calendar generated";
 	}

@@ -10,8 +10,7 @@
 <body style="height: 333px; ">
 
 	<DIV ALIGN="center"><h1>Calendar</h1></DIV>
-	<DIV ALIGN="center"><h2><form>	
-			</form>${month}	${year}</h2></DIV>
+	<DIV ALIGN="center"><h2>${month}	${year}</h2></DIV>
 	
 	
 	<table style="width: 700px; height: 600px; border-right-style: none; border-left-style: none; border-bottom-style: none; background-image: none; background-position: center center; border-top-style: none" align="center" cellspacing="10px" frame="border">

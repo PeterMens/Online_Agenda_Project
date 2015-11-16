@@ -6,30 +6,34 @@ public class PopulateDatabase {
 	// put weeks in months
 	// put month in database
 
-	private int realYear, realMonth, month, year, numberOfYearsToGenerate;
+	private int realYear, realMonth, numberOfYearsToGenerate;
 	
 	public PopulateDatabase(){
 		
 	}
 	
-	/*public void createObjectsOfMonth(int numberOfYearsToGenerate){
+	public void createObjectsOfMonth(int numberOfYearsToGenerate){
 		this.numberOfYearsToGenerate = numberOfYearsToGenerate;
 		RealDate realdate = new RealDate();
+		realdate.getDate();
 		realYear = realdate.getRealYear();
 		realMonth = realdate.getRealMonth();
 		
-		for (int y = realYear; y < realYear + numberOfYearsToGenerate; y++){
+		for (int y = realYear; y < (realYear + this.numberOfYearsToGenerate);){
 			 
 			for (int m = realMonth; m<= 11; m++ ){
 				PopulateCalendar populateMonth = new PopulateCalendar(m, y);
 				Month month = populateMonth.generateMonth();
 				month.setYear(y);
+				
 				MonthDao.addMonth(month);
+				y++;
 			}
 		}
-	}*/
+	}
+}
 	
-	public void createObjectsOfMonth(){
+/*	public void createObjectsOfMonth(){
 		
 		Day dag = new Day();
 		dag.setDay("dag1");
@@ -44,6 +48,6 @@ public class PopulateDatabase {
 		
 		MonthDao.addMonth(month);
 			}
-		}
+		}*/
 	
 

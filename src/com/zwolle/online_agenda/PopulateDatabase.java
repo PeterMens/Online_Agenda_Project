@@ -2,11 +2,12 @@ package com.zwolle.online_agenda;
 
 public class PopulateDatabase {
 
-	// give year + month for last 5 and coming 5 year
-	// put weeks in months
+	// generate years starting from current year till + 10 years
+	// put days in months
+	//put weeks in months
 	// put month in database
 
-	private int realYear, realMonth, numberOfYearsToGenerate;
+	private int realYear, numberOfYearsToGenerate, month = 1, year;
 	
 	public PopulateDatabase(){
 		
@@ -17,21 +18,27 @@ public class PopulateDatabase {
 		RealDate realdate = new RealDate();
 		realdate.getDate();
 		realYear = realdate.getRealYear();
-		realMonth = realdate.getRealMonth();
 		
-		for (int y = realYear; y < (realYear + this.numberOfYearsToGenerate);){
-			 
-			for (int m = realMonth; m<= 11; m++ ){
-				PopulateCalendar populateMonth = new PopulateCalendar(m, y);
-				Month month = populateMonth.generateMonth();
-				month.setYear(y);
-				
-				MonthDao.addMonth(month);
-				y++;
+		for (year = realYear; year < (realYear + this.numberOfYearsToGenerate);){
+			
+			for ( int m = 1; m <= 12; m++){
+				//System.out.println("Jaar: " + year);
+				//System.out.println("Maand: " + month);
+				PopulateCalendar populateMonth = new PopulateCalendar(month, year);
+				Month maand = populateMonth.generateMonth();
+				maand.setYear(year);
+				MonthDao.addMonth(maand);
+				month++;
+				;
+				}
+			
+			year++;
+			month=1;
+			
 			}
 		}
 	}
-}
+
 	
 /*	public void createObjectsOfMonth(){
 		

@@ -33,7 +33,7 @@ public class JSPController {
 	@RequestMapping("/generate")
 	public @ResponseBody String GenerateDatabase () {
 		PopulateDatabase db = new PopulateDatabase();
-		db.createObjectsOfMonth(5);
+		db.createObjectsOfMonth(11);
 		
 		return "Calendar generated";
 	}

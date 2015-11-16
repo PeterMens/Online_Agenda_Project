@@ -1,5 +1,6 @@
 package com.zwolle.online_agenda;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +18,7 @@ public class Day {
 		}
 		
 		@Id
+		//@Column(name="day_id")
 	    @GeneratedValue(generator="increment")
 	    @GenericGenerator(name="increment", strategy = "increment")
 	    public Long getId() {

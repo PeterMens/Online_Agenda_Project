@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -21,18 +23,19 @@ public class Week {
 
 	private int weekNumber;
 	private Long id;
-	private List<Day> week;
+	private List<Day> dagen;
 
 	public Week(){
-		week = new ArrayList<Day>();
+		dagen = new ArrayList<Day>();
 	}
 	
 	public Week(int weekNumber){
 		this.weekNumber = weekNumber;
-		week = new ArrayList<Day>();	
+		dagen = new ArrayList<Day>();	
 	}
 	
 	@Id
+	//@Column(name="week_id")
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
     public Long getId() {
@@ -43,6 +46,8 @@ public class Week {
     	this.id = id;
     }
 
+	
+
 	public int getWeekNumber() {
 		return weekNumber;
 	}
@@ -52,12 +57,13 @@ public class Week {
 	}
 
 	@OneToMany(cascade=CascadeType.ALL)
-	public List<Day> getWeek() {
-		return week;
+	//@JoinColumn(name="day_id")
+	public List<Day> getDagen() {
+		return dagen;
 	}
 
-	public void setWeek(List<Day> week) {
-		this.week = week;
+	public void setDagen(List<Day> week) {
+		this.dagen = week;
 	}
 	
 }

@@ -10,18 +10,21 @@ import javax.persistence.Persistence;
 public abstract class MonthDao {
 		private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("calendar");
 		
-		
-		//voeg maand aan database toe
-		public static void addMonth (Month month){
+		public static void addDay(){
+			Day d = new Day();
+			d.setDay("dit is een dag");
+			
+			Week w = new Week();
+			w.getDagen().add(d);
+			w.setWeekNumber(32);
 			
 			EntityManager em = emf.createEntityManager();
 			EntityTransaction t = em.getTransaction();
 			t.begin();
-			em.persist(month);
+			em.persist(w);
 			t.commit();
 			em.close();
 		}
-		
 	/*	//voeg een dag aan de database toe
 		public static void addDay(Day day) {
 			EntityManager em = emf.createEntityManager();
@@ -44,41 +47,6 @@ public abstract class MonthDao {
 		}*/
 		
 		
-		 // Verwijder een month uit de database
-		public static void remove(Long id){
-			EntityManager em = emf.createEntityManager();
-			EntityTransaction t = em.getTransaction();
-			t.begin();
-			Month month = em.find(Month.class, id);
-			if(month != null){
-				em.remove(month);
-			}
-			t.commit();
-			em.close();
-		}
-		
 	
-		 //Haal een month op a.d.h.v. zijn id
-		public static Month find(Long id){
-			EntityManager em = emf.createEntityManager();
-			EntityTransaction t = em.getTransaction();
-			t.begin();
-			Month month = em.find(Month.class, id);
-			t.commit();
-			em.close();
-			return month;
-		}
-		
-		/*
-		//Haal alle months op uit de database
-		public static List<Rit> all(){
-			EntityManager em = emf.createEntityManager();
-			EntityTransaction t = em.getTransaction();
-			t.begin();
-			List<Rit> ritten = em.createQuery("from Rit", Rit.class).getResultList();
-			t.commit();
-			em.close();
-			return ritten;
-		}*/
 
 }

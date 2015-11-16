@@ -1,10 +1,13 @@
 package com.zwolle.online_agenda;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -13,14 +16,15 @@ public class Month {
 	
 	private int year;
 	private Long id;
-	private ArrayList<Week> month;
+	private List<Week> month;
 	
 	public Month (){	
 	month = new ArrayList<Week>();
 	
 	}
 
-	public ArrayList<Week> getMonth() {
+	@OneToMany(cascade=CascadeType.ALL)
+	public List<Week> getMonth() {
 		return month;
 	}
 	
@@ -35,7 +39,7 @@ public class Month {
     	this.id = id;
     }
 	
-	public void setMonth(ArrayList<Week> month) {
+	public void setMonth(List<Week> month) {
 		this.month = month;
 	}
 

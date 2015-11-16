@@ -110,17 +110,25 @@ public class PopulateCalendar{
 		                {
 		                    // Just append empty space, then CONTINUE
 		                    // to next iteration (d++)
-		                    week.getDays().add("");
+		                    Day objectDay = new Day();
+		                    objectDay.setDay("");
+		                    week.getWeek().add(objectDay);
+		                    //MonthDao.addDay(objectDay);
 		                    continue;
 		                }
 		                
 		                // add days of week
 		                else { 
-		                	week.getDays().add(String.valueOf(day++));
+		                	Day objectDay = new Day();
+		                    objectDay.setDay(String.valueOf(day++));
+		                    week.getWeek().add(objectDay);
+		                    //MonthDao.addDay(objectDay);
 		                	}
 		                }
 	
 		        	month.getMonth().add(week);
+		        	//MonthDao.addWeek(week);
+		        	
 		        	if (weekNumber == 52){
 		        		weekNumber = 0;
 		        	} 

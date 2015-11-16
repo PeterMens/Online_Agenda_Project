@@ -29,8 +29,8 @@
 		<c:forEach items="${generateMonth}" var="week">
 			<tr>
 				<td height="30" width="100"><p align="center"><b><font color= "red" >${week.weekNumber}</font></b></p></td>
-				<c:forEach items="${week.days}" var="dayOfWeeks">
-					<td height="30" width="100"><p align="center"><b><font color= "blue" >${dayOfWeeks}</font></b></p></td>
+				<c:forEach items="${week.week}" var="dayOfWeeks">
+					<td height="30" width="100"><p align="center"><b><font color= "blue" >${dayOfWeeks.day}</font></b></p></td>
 				</c:forEach>
 			</tr>
 		</c:forEach>

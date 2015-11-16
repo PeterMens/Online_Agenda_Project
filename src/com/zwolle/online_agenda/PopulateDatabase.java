@@ -12,16 +12,11 @@ public class PopulateDatabase {
 		
 	}
 	
-	public PopulateDatabase(int numberOfYearsToGenerate){
+	public void createObjectsOfMonth(int numberOfYearsToGenerate){
 		this.numberOfYearsToGenerate = numberOfYearsToGenerate;
-	}
-	
-	public void createObjectsOfMonthfor5Years(){
 		RealDate realdate = new RealDate();
 		realYear = realdate.getRealYear();
 		realMonth = realdate.getRealMonth();
-		
-		
 		
 		for (int y = realYear; y < realYear + numberOfYearsToGenerate; y++){
 			 
@@ -33,7 +28,5 @@ public class PopulateDatabase {
 			}
 		}
 	}
-	
-	// month in database stoppen
 	
 }

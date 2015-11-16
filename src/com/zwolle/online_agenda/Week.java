@@ -1,10 +1,13 @@
 package com.zwolle.online_agenda;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -18,15 +21,15 @@ public class Week {
 
 	private int weekNumber;
 	private Long id;
-	private ArrayList<String> days;
-	
+	private List<Day> week;
+
 	public Week(){
-		
+		week = new ArrayList<Day>();
 	}
 	
 	public Week(int weekNumber){
 		this.weekNumber = weekNumber;
-		days = new ArrayList<String>();
+		week = new ArrayList<Day>();	
 	}
 	
 	@Id
@@ -44,16 +47,17 @@ public class Week {
 		return weekNumber;
 	}
 
-	public void setWeeknumber(int weekNumber) {
+	public void setWeekNumber(int weekNumber) {
 		this.weekNumber = weekNumber;
 	}
 
-	public ArrayList<String> getDays() {
-		return days;
+	@OneToMany(cascade=CascadeType.ALL)
+	public List<Day> getWeek() {
+		return week;
 	}
 
-	public void setDays(ArrayList<String> days) {
-		this.days = days;
+	public void setWeek(List<Day> week) {
+		this.week = week;
 	}
 	
 }

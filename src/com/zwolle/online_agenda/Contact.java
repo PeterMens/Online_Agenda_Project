@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
 
 import org.hibernate.annotations.GenericGenerator;
 
-// will be used to add/save and modify a contactlist.
+/*// will be used to add/save and modify a contactlist.
 @Entity
 public class Contact {
 	
@@ -54,5 +54,5 @@ public class Contact {
 	
 	
 	
-	}
+	}*/
 

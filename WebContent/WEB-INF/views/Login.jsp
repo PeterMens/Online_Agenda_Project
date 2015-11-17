@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<DIV ALIGN="center"><h1>Online Agenda</h1></DIV>
+
+
+	<DIV ALIGN="center"><form><h4>Username<input></h4></form></DIV>
+	<DIV ALIGN="center"><form><h4>Password<input></h4></form></DIV>
+
+
+<DIV ALIGN="center"><h4>Register new user</h4></DIV>
+
 
 </body>
 </html>

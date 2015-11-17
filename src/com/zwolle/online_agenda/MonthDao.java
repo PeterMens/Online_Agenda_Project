@@ -5,7 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 public abstract class MonthDao {
 		private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("calendar");
@@ -22,10 +24,25 @@ public abstract class MonthDao {
 			em.close();
 		}
 		
-		//
+		// haal maand op uit database
+		public static Month findMonthByYearAndMonthNumber(int yearNumber, int monthNumber){
+			Month month;
+			EntityManager em = emf.createEntityManager();
+			EntityTransaction t = em.getTransaction();
+			t.begin();
+			try {
+				TypedQuery<Month> q = em.createQuery("from Month u where u.year= :year and u.monthNumber= :monthNumber", Month.class);
+				q.setParameter("year", yearNumber);
+				month = q.setParameter("monthNumber", monthNumber).getSingleResult();
+			} catch (NoResultException e) {
+				return null;
+			}
+			t.commit();
+			em.close();	
+			return month;
+		}
 		
-		
-		 // Verwijder een month uit de database
+		// Verwijder een month uit de database
 		public static void remove(Long id){
 			EntityManager em = emf.createEntityManager();
 			EntityTransaction t = em.getTransaction();

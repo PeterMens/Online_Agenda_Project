@@ -27,6 +27,7 @@ public class PopulateDatabase {
 				PopulateCalendar populateMonth = new PopulateCalendar(month, year);
 				Month maand = populateMonth.generateMonth();
 				maand.setYear(year);
+				maand.setMonthNumber(month);
 				MonthDao.addMonth(maand);
 				month++;
 				;

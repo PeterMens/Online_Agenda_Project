@@ -18,21 +18,34 @@ import com.sun.xml.internal.bind.v2.model.core.ID;
 @Controller
 public class JSPController {
 	
+	private int monthNumber, yearNumber;	
+	private String [] months = {"January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"};
+	
+	
+	//set header month
+		public String getMonthHeader(int month){
+			return months[month];
+		}
+
 	
 	//controller for /calendar
 	@RequestMapping("/calendar")
 	public String Calendar (Model model) {
 	
+		RealDate date = new RealDate();
+		date.getDate();
+		monthNumber = date.getRealMonth();
+		yearNumber = date.getRealYear();
 		
-		PopulateCalendar cal = new PopulateCalendar(2015, 12);
 		
-		model.addAttribute("month", cal.getMonthHeader());
-		model.addAttribute("year", cal.getYearHeader());
-		//model.addAttribute("generateMonth", cal.generateMonth().getWeken());
+
+		model.addAttribute("month", getMonthHeader(monthNumber));
+		model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
+		model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
 		
-		//model.addAttribute("generateMonth", MonthDao.find();
-		//hoe weet je het id  van de opgeslagen maand?
-		//hoe parse je naar Long?
+	
+		
+	
 	
 		return "Calendar";
 	}

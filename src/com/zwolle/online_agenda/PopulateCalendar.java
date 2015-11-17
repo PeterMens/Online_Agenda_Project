@@ -6,17 +6,12 @@ import java.util.GregorianCalendar;
 public class PopulateCalendar{
 
 	private int firstDayofMonth, lastDayofMonth, weekNumber, year, month;
-	private String [] months = {"January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"};
+	
 	
 	// constructor for populating calendar month
 	public PopulateCalendar ( int year, int month){
 		this.month = month-1;
 		this.year = year;
-	}
-	
-	//set header month
-	public String getMonthHeader(){
-		return months[month];
 	}
 		
 	//set header year

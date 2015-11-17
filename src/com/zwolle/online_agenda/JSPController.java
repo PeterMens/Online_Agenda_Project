@@ -31,15 +31,17 @@ public class JSPController {
 	@RequestMapping("/calendar/nextmonth")
 	public String nextMonth (Model model){
 		
-		if (monthNumber > 12) {yearNumber++; monthNumber = 1;} else {
+		if (monthNumber == 11) {yearNumber++; monthNumber = 1;} else {
 			monthNumber++;
+			
+			System.out.println("Maand = " + monthNumber);
+			System.out.println("Jaar = " + yearNumber);
 			
 			model.addAttribute("month", getMonthHeader(monthNumber));
 			model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
 			model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
 		}
-		System.out.println("Maand = " + monthNumber);
-		System.out.println("Jaar = " + yearNumber);
+		
 		return "Calendar";
 	}
 	
@@ -47,7 +49,7 @@ public class JSPController {
 		@RequestMapping("/calendar/previousmonth")
 		public String lastMonth (Model model){
 			
-			if (monthNumber < 1) {yearNumber--; monthNumber = 12;} else {
+			if (monthNumber == 1) {yearNumber--; monthNumber = 11;} else {
 				monthNumber--;
 				
 				model.addAttribute("month", getMonthHeader(monthNumber));

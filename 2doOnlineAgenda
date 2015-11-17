@@ -1,0 +1,17 @@
+
+* login scherm maken 
+* bij aanmaken nieuwe gebruiker -> database genereren
+* bij inlog die gebruiker, die database ophalen
+
+* notities toevoegen aan day objecten en naar database opslaan.
+* volgende keer als je ze ophaalt, notities tonen
+
+
+
+
+/ ************** BUGS *******************\
+
+* Opgehaalde maanden kloppen niet helemaal, gaat waarschijnlijk mis bij generaten
+
+* Bij next en previousmaand zit een fout waardoor hij sommige maanden niet toont, 
+* kan ook aan de database liggen

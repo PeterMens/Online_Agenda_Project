@@ -27,10 +27,41 @@ public class JSPController {
 			return months[month];
 		}
 
+	//controller for nextMonth
+	@RequestMapping("/calendar/nextmonth")
+	public String nextMonth (Model model){
+		
+		if (monthNumber > 12) {yearNumber++; monthNumber = 1;} else {
+			monthNumber++;
+			
+			model.addAttribute("month", getMonthHeader(monthNumber));
+			model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
+			model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
+		}
+		System.out.println("Maand = " + monthNumber);
+		System.out.println("Jaar = " + yearNumber);
+		return "Calendar";
+	}
+	
+	//controller for previousMonth
+		@RequestMapping("/calendar/previousmonth")
+		public String lastMonth (Model model){
+			
+			if (monthNumber < 1) {yearNumber--; monthNumber = 12;} else {
+				monthNumber--;
+				
+				model.addAttribute("month", getMonthHeader(monthNumber));
+				model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
+				model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
+			}
+			
+			return "Calendar";
+		}
+			
 	
 	//controller for /calendar
 	@RequestMapping("/calendar")
-	public String Calendar (Model model) {
+	public String calendar (Model model) {
 	
 		RealDate date = new RealDate();
 		date.getDate();

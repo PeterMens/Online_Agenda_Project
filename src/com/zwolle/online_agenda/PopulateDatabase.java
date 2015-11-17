@@ -7,7 +7,7 @@ public class PopulateDatabase {
 	//put weeks in months
 	// put month in database
 
-	private int realYear, numberOfYearsToGenerate, month = 1, year;
+	private int realYear, numberOfYearsToGenerate, month = 0, year;
 	
 	public PopulateDatabase(){
 		
@@ -21,7 +21,7 @@ public class PopulateDatabase {
 		
 		for (year = realYear; year < (realYear + this.numberOfYearsToGenerate);){
 			
-			for ( int m = 1; m <= 12; m++){
+			for ( int m = 0; m <= 11; m++){
 				//System.out.println("Jaar: " + year);
 				//System.out.println("Maand: " + month);
 				PopulateCalendar populateMonth = new PopulateCalendar(month, year);
@@ -34,7 +34,7 @@ public class PopulateDatabase {
 				}
 			
 			year++;
-			month=1;
+			month=0;
 			
 			}
 		}

@@ -12,6 +12,5 @@
 / ************** BUGS *******************\
 
 * Opgehaalde maanden kloppen niet helemaal, gaat waarschijnlijk mis bij generaten
-
-* Bij next en previousmaand zit een fout waardoor hij sommige maanden niet toont, 
-* kan ook aan de database liggen
+* Week nummers kloppen niet
+* Als de gegenereerde jaren op zijn -> hardcoded JSP page met melding, dynamisch maken.

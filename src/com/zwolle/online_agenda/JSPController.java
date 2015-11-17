@@ -1,18 +1,9 @@
 package com.zwolle.online_agenda;
 
-import java.time.Month;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 
 @Controller
@@ -34,6 +25,9 @@ public class JSPController {
 		if (monthNumber == 11) {
 			yearNumber++;
 			monthNumber = 0;
+			
+			//hardcoded! errorpage if year is not there to generate 
+			if (yearNumber > 2025 ){ return "YearNotGenerated";}
 			
 			System.out.println("Maand on nextclick = " + monthNumber);
 			System.out.println("Jaar on nextclick = " + yearNumber);
@@ -66,6 +60,9 @@ public class JSPController {
 				yearNumber--; 
 				monthNumber = 11;
 			
+				//hardcoded! errorpage if year is not there to generate 
+				if (yearNumber < 2015 ){ return "YearNotGenerated";}
+				
 				System.out.println("Maand on previousclick = " + monthNumber);
 				System.out.println("Jaar on previousclick = " + yearNumber);
 				

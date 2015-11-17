@@ -61,10 +61,23 @@ public class JSPController {
 		@RequestMapping("/calendar/previousmonth")
 		public String lastMonth (Model model){
 			
-			if (monthNumber == 0) {yearNumber--; monthNumber = 11;} else {
+			if (monthNumber == 0) {
+				
+				yearNumber--; 
+				monthNumber = 11;
+			
+				System.out.println("Maand on previousclick = " + monthNumber);
+				System.out.println("Jaar on previousclick = " + yearNumber);
+				
+				model.addAttribute("month", getMonthHeader(monthNumber));
+				model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
+				model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
+			
+			} else {
 				monthNumber--;
-				System.out.println("Maand on nextclick = " + monthNumber);
-				System.out.println("Jaar on nextclick = " + yearNumber);
+				
+				System.out.println("Maand on previousclick = " + monthNumber);
+				System.out.println("Jaar on previousclick = " + yearNumber);
 				
 				model.addAttribute("month", getMonthHeader(monthNumber));
 				model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());

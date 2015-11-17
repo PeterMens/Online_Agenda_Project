@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -14,6 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Month {
 	
+	private int monthNumber;
 	private int year;
 	private Long id;
 	private List<Week> weken;
@@ -22,7 +24,7 @@ public class Month {
 	weken = new ArrayList<Week>();
 	}
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	public List<Week> getWeken() {
 		return weken;
 	}
@@ -50,6 +52,15 @@ public class Month {
 	public void setYear(int year) {
 		this.year = year;
 	}
+	
+	public int getMonthNumber() {
+		return monthNumber;
+	}
+
+	public void setMonthNumber(int monthNumber) {
+		this.monthNumber = monthNumber;
+	}
+
 	
 
 	

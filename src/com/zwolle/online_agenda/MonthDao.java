@@ -22,6 +22,8 @@ public abstract class MonthDao {
 			em.close();
 		}
 		
+		//
+		
 		
 		 // Verwijder een month uit de database
 		public static void remove(Long id){

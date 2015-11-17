@@ -1,5 +1,7 @@
 package com.zwolle.online_agenda;
 
+import java.time.Month;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.sun.xml.internal.bind.v2.model.core.ID;
 
 
 @Controller
@@ -24,7 +28,11 @@ public class JSPController {
 		
 		model.addAttribute("month", cal.getMonthHeader());
 		model.addAttribute("year", cal.getYearHeader());
-		model.addAttribute("generateMonth", cal.generateMonth().getWeken());
+		//model.addAttribute("generateMonth", cal.generateMonth().getWeken());
+		
+		//model.addAttribute("generateMonth", MonthDao.find();
+		//hoe weet je het id  van de opgeslagen maand?
+		//hoe parse je naar Long?
 	
 		return "Calendar";
 	}
@@ -32,10 +40,10 @@ public class JSPController {
 	
 	@RequestMapping("/generate")
 	public @ResponseBody String GenerateDatabase () {
-		PopulateDatabase db = new PopulateDatabase();
+	PopulateDatabase db = new PopulateDatabase();
 		db.createObjectsOfMonth(11);
 		
-		return "Calendar generated";
+		return "Database Generated";
 	}
 	
 	/*@RequestMapping("/contact")

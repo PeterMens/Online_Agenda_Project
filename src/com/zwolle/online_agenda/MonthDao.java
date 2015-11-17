@@ -22,27 +22,6 @@ public abstract class MonthDao {
 			em.close();
 		}
 		
-	/*	//voeg een dag aan de database toe
-		public static void addDay(Day day) {
-			EntityManager em = emf.createEntityManager();
-			EntityTransaction t = em.getTransaction();
-			t.begin();
-			em.persist(day);
-			t.commit();
-			em.close();
-		}
-		
-		//voeg een week aan de database toe
-		public static void addWeek(Week week) {
-			EntityManager em = emf.createEntityManager();
-			EntityTransaction t = em.getTransaction();
-			t.begin();
-			em.persist(week.getWeek());
-			em.persist(week);
-			t.commit();
-			em.close();
-		}*/
-		
 		
 		 // Verwijder een month uit de database
 		public static void remove(Long id){
@@ -57,7 +36,6 @@ public abstract class MonthDao {
 			em.close();
 		}
 		
-	
 		 //Haal een month op a.d.h.v. zijn id
 		public static Month find(Long id){
 			EntityManager em = emf.createEntityManager();

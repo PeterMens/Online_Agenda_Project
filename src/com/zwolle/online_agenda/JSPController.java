@@ -1,8 +1,12 @@
 package com.zwolle.online_agenda;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -94,16 +98,10 @@ public class JSPController {
 		monthNumber = date.getRealMonth();
 		yearNumber = date.getRealYear();
 		
-		
-
 		model.addAttribute("month", getMonthHeader(monthNumber));
 		model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
 		model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
 		
-	
-		
-	
-	
 		return "Calendar";
 	}
 	
@@ -115,6 +113,21 @@ public class JSPController {
 		
 		return "Database Generated";
 	}
+	
+	
+	
+
+	
+	@RequestMapping("/login")
+	public String logIn(){
+		
+		
+		
+	return "Login";	
+	}
+	
+	
+	
 	
 	/*@RequestMapping("/contact")
 	public @ResponseBody String Contact (){

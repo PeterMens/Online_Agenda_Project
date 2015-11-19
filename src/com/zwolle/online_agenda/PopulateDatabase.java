@@ -1,5 +1,8 @@
 package com.zwolle.online_agenda;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PopulateDatabase {
 
 	// generate years starting from current year till + 10 years
@@ -8,13 +11,24 @@ public class PopulateDatabase {
 	// put month in database
 
 	private int realYear, numberOfYearsToGenerate, month = 0, year;
+	private List<Month> maanden;
+	
 	
 	public PopulateDatabase(){
-		
+		maanden = new ArrayList<Month>();
 	}
+
 	
+	public List<Month> getMaanden() {
+		return maanden;
+	}
+
+
+	public void setMaanden(List<Month> maanden) {
+		this.maanden = maanden;
+	}
+
 	public void createObjectsOfMonth(int numberOfYearsToGenerate){
-		//User user = new User();
 		this.numberOfYearsToGenerate = numberOfYearsToGenerate;
 		RealDate realdate = new RealDate();
 		realdate.getDate();
@@ -29,7 +43,8 @@ public class PopulateDatabase {
 				Month maand = populateMonth.generateMonth();
 				maand.setYear(year);
 				maand.setMonthNumber(month);
-				MonthDao.addMonth(maand);
+				maanden.add(maand);
+				//MonthDao.addMonth(maand);
 				month++;
 				;
 				}
@@ -39,24 +54,9 @@ public class PopulateDatabase {
 			
 			}
 		}
+		
 	}
 
 	
-/*	public void createObjectsOfMonth(){
-		
-		Day dag = new Day();
-		dag.setDay("dag1");
-		
-		Week week = new Week();
-		week.getDagen().add(dag);
-		week.setWeekNumber(44);
-		
-		Month month = new Month();
-		month.getWeken().add(week);
-		month.setYear(1995);
-		
-		MonthDao.addMonth(month);
-			}
-		}*/
-	
+
 

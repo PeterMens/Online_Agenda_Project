@@ -43,17 +43,19 @@ public class Register {
 			return "Register";
 		} else {	
 		
-		//make new user and add user to database
+		//make months and users in populateDatabase class (returns a user)
 		User user = new User();
+		PopulateDatabase populate = new PopulateDatabase();
+		populate.createObjectsOfMonth(11);
+		user.setMaanden(populate.getMaanden());
 		user.setUsername(username);
 		user.setPassword(newPassword);
-		user.setMaanden(maanden);
-		//maanden aanmaken en koppelen aan user
 		
-		RegisterDAO.addUser(user);
-		
+		//add user to database
+		if(user.getMaanden().isEmpty() == false){
+			RegisterDAO.addUser(user);
+			}
 		return "RegisterSucces";
-		
 		}	
 	}
 }

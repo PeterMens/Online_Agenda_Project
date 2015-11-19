@@ -31,12 +31,12 @@
 			<td height="30" width="100"><p align="center"><b><font color= "blue" >Saturday</font></b></p></td>
 			<td height="30" width="100"><p align="center"><b><font color= "blue" >Sunday</font></b></p></td>
 		</tr>
-		
+
 		<c:forEach items="${generateMonth}" var="week">
 			<tr>
 				<td height="30" width="100"><p align="center"><b><font color= "red" >${week.weekNumber}</font></b></p></td>
 				<c:forEach items="${week.dagen}" var="dayOfWeeks">
-					<td height="30" width="100"><p align="center"><b><font color= "blue" ><DIV ALIGN="center"><a href="<c:url value="/calendar/note"/>">${dayOfWeeks.day}</a></DIV></font></b></p></td>
+					<td height="30" width="100"><p align="center"><b><font color= "blue" ><a href="<c:url value="/calendar/note"/>">${dayOfWeeks.day}</a></font></b></p></td>
 				</c:forEach>
 			</tr>
 		</c:forEach>

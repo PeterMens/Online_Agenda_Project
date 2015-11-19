@@ -15,7 +15,7 @@
 
 	<DIV ALIGN="center"><h1>Calendar</h1></DIV>
 	<DIV ALIGN="center"><h2>${month}	${year}</h2></DIV>
-	<DIV ALIGN="center"><a href="<c:url value="/calendar/previousmonth"/>"  class="myButton">Previous Month</a>
+	<DIV ALIGN="center"><a href="<c:url value="/calendar/previousmonth"/>"  class="myButton" >Previous Month</a>
 	<a href="<c:url value="/calendar/nextmonth"/>"  class="myButton">Next Month</a></DIV>
 	
 	

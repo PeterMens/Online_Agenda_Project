@@ -28,3 +28,4 @@ Finishing touch
 * Opgehaalde maanden kloppen niet helemaal, gaat waarschijnlijk mis bij generaten
 * Week nummers kloppen niet
 * Als de gegenereerde jaren op zijn -> hardcoded JSP page met melding, dynamisch maken.
+* CSS wordt niet ingeladen

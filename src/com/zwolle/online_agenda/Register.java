@@ -43,14 +43,14 @@ public class Register {
 			return "Register";
 		} else {	
 		
+		//make new user and add user to database
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(newPassword);
+		user.setMaanden(maanden);
+		//maanden aanmaken en koppelen aan user
 		
-		
-		//create database 
-		// add month in user
-		//write user to db
+		RegisterDAO.addUser(user);
 		
 		return "RegisterSucces";
 		

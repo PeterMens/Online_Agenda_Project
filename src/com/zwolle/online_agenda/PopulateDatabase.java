@@ -14,6 +14,7 @@ public class PopulateDatabase {
 	}
 	
 	public void createObjectsOfMonth(int numberOfYearsToGenerate){
+		//User user = new User();
 		this.numberOfYearsToGenerate = numberOfYearsToGenerate;
 		RealDate realdate = new RealDate();
 		realdate.getDate();

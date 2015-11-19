@@ -126,6 +126,13 @@ public class JSPController {
 	return "Login";	
 	}
 	
+	//display note
+	@RequestMapping("/calendar/note")
+	public String displayNote() {
+	
+		//get note
+		return "Note";
+	}
 	
 	
 	

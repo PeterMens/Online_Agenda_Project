@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="<c:url value="/style/button.css"/>" rel="stylesheet" type="text/css"/>
+<link type="text/css" rel="stylesheet" href="<c:url value="/style/button.css" />" />
 <title>Online_Agenda</title>
 </head>
 <body style="height: 333px; ">
@@ -36,7 +36,7 @@
 			<tr>
 				<td height="30" width="100"><p align="center"><b><font color= "red" >${week.weekNumber}</font></b></p></td>
 				<c:forEach items="${week.dagen}" var="dayOfWeeks">
-					<td height="30" width="100"><p align="center"><b><font color= "blue" >${dayOfWeeks.day}</font></b></p></td>
+					<td height="30" width="100"><p align="center"><b><font color= "blue" ><DIV ALIGN="center"><a href="<c:url value="/calendar/note"/>">${dayOfWeeks.day}</a></DIV></font></b></p></td>
 				</c:forEach>
 			</tr>
 		</c:forEach>

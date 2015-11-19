@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/login")
-public abstract class Login {
+public class Login {
 	
 	private static String username, password;
 
@@ -23,15 +23,14 @@ public abstract class Login {
 		return password;
 	}
 
-
-	// check form info uit jsp met database, als het klopt, haal calendar uit database en toon /calendar jsp.
 	@RequestMapping(method = RequestMethod.GET)
-	public String register(){
-			return "Login";
+	public String login(){
+		return "Login";
 	}
 	
+	// check form info uit jsp met database, als het klopt, haal calendar uit database en toon /calendar jsp.
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody String registerSubmit(HttpServletResponse response, @RequestParam(value = "usernameInput", required=false) String usernameInput,  
+	public String registerSubmit(HttpServletResponse response, @RequestParam(value = "usernameInput", required=false) String usernameInput,  
 	@RequestParam(value = "passwordInput", required=false) String passwordInput, Model model){
 			
 		

@@ -110,12 +110,6 @@ public class JSPController {
 	
 	
 	
-	/*@RequestMapping("/login")
-	public String logIn(){
-		
-	return "Login";	
-	}*/
-	
 	//display note
 	@RequestMapping("/calendar/note")
 	public String displayNote() {

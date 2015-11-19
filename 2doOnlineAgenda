@@ -6,7 +6,7 @@ Register
 Login
 * bij inlog password + username check uit database: DIT WERKT
 * calender wordt dynamisch opgehaald! DIT WERKT
-* als check klopt, agenda van user ophalen uit database (KOPPELING MIST VAN USER NAAR OPHALEN DATABASE = nu hardcoded)
+* als check klopt, agenda van user ophalen uit database DIT WERKT
 
 
 Calendar
@@ -17,7 +17,6 @@ Calendar
 Layout
 * fancy buttons maken met buttongenerator, css bestandje maken die tag bij me links gooien
 * evt. Bootstrap
-
 
 Finishing touch
 * Opruimen code (MonthDAO needed?)
@@ -32,3 +31,4 @@ Finishing touch
 * Als de gegenereerde jaren op zijn -> hardcoded JSP page met melding, dynamisch maken.
 * CSS wordt niet ingeladen
 * pass + username invoeren op Login, als dit niet klopt, vaak nullpointer!? iets met check?
+* beveiliging maken voor het zelf intypen van een url naar bijv /calendar

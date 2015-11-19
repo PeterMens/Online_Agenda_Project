@@ -16,8 +16,9 @@
 <p><input type="submit" value="Submit Note"></p>
 </form:form></DIV>
 	
-**  display note :) ${getNote}
+<DIV ALIGN="center"><h3>#### Display note here via Expression Language ${getNote} ####</h3></DIV>
  
-**  back to calendar button
+<DIV ALIGN="center"><a href="<c:url value="/calendar"/>"><h4>Back to Agenda</h4></a></DIV>
+
 </body>
 </html>

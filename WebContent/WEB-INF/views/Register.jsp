@@ -27,9 +27,9 @@
 		<TR>
 			<TD><DIV ALIGN="center"><h4>Confirm Password</h4></DIV></TD>
 			<TD><input name="confirmPassword"></TD>
-		<TR>
+		</TR>
 </TABLE></DIV>	
-
+<TD><DIV ALIGN="center"><h4>${usernameEmpty}${passwordEmpty}${noMatch}</h4></DIV></TD>
 <DIV ALIGN="center"><input type="submit" value="Submit"></DIV>
 
 </form:form>

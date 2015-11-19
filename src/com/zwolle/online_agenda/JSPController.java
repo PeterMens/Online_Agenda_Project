@@ -100,31 +100,21 @@ public class JSPController {
 		
 		model.addAttribute("month", getMonthHeader(monthNumber));
 		model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
-		model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
+		model.addAttribute("generateMonth", RegisterDAO.findUserByUsernameAndPassword(Login.getUsername(), Login.getPassword()).getMaanden());
+		
+		
+		//model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
 		
 		return "Calendar";
 	}
 	
 	
-	@RequestMapping("/generate")
-	public @ResponseBody String GenerateDatabase () {
-	PopulateDatabase db = new PopulateDatabase();
-		db.createObjectsOfMonth(11);
-		
-		return "Database Generated";
-	}
 	
-	
-	
-
-	
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public String logIn(){
 		
-		
-		
 	return "Login";	
-	}
+	}*/
 	
 	//display note
 	@RequestMapping("/calendar/note")
@@ -134,25 +124,5 @@ public class JSPController {
 		return "Note";
 	}
 	
-	
-	
-	/*@RequestMapping("/contact")
-	public @ResponseBody String Contact (){
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("contact");
-	Contact contact = new Contact();
-	contact.chooseFirstName();
-	
-	 EntityManager em = emf.createEntityManager();
-		EntityTransaction t = em.getTransaction();
-		t.begin();
-		
-		em.persist(contact);
-		
-		t.commit();
-		em.close();
-	 
-	 return "Contact";
-	 }*/
-	 
 
 }

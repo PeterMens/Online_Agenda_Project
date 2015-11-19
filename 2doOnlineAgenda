@@ -1,10 +1,10 @@
 
 Register
-* username + password naar database schrijven
-* bij aanmaken nieuwe gebruiker -> database genereren
+* username + password naar database schrijven: DIT WERKT
+* bij aanmaken nieuwe gebruiker -> database genereren: DIT WERKT
 
 Login
-* bij inlog password + username check uit database
+* bij inlog password + username check uit database: DIT WERKT
 * als check klopt, agenda van user ophalen uit database
 
 Calendar

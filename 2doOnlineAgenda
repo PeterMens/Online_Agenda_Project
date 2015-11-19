@@ -32,3 +32,4 @@ Finishing touch
 * CSS wordt niet ingeladen
 * pass + username invoeren op Login, als dit niet klopt, vaak nullpointer!? iets met check?
 * beveiliging maken voor het zelf intypen van een url naar bijv /calendar
+* jaartallen veranderen niet goed mee

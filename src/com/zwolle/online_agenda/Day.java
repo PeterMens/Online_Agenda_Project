@@ -1,5 +1,8 @@
 package com.zwolle.online_agenda;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,9 +14,10 @@ public class Day {
 
 		private Long id;
 		private String day;
+		private List<Note> notities;
 		
 		public Day(){
-			
+			notities = new ArrayList<Note>();		
 		}
 		
 		@Id

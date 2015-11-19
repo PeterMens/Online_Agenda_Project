@@ -17,6 +17,11 @@ Layout
 * evt. Bootstrap
 
 
+Finishing touch
+* Opruimen code
+* Creeren javadocs
+* meerdere packages maken voor jsp/controllers/pojo's
+* Interceptor toevoegen for form inputs
 
 / ************** BUGS *******************\
 

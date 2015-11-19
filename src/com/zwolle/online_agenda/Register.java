@@ -1,14 +1,17 @@
 package com.zwolle.online_agenda;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("myRequestObject")
 @RequestMapping("/register")
 public class Register {
 // register new user with name and password
@@ -23,7 +26,8 @@ public class Register {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String registerSubmit(HttpServletResponse response, @RequestParam(value = "username", required=false) String username,  
-			@RequestParam(value = "newPassword", required=false) String newPassword, @RequestParam(value = "confirmPassword", required=false) String confirmPassword, Model model){
+			@RequestParam(value = "newPassword", required=false) String newPassword, @RequestParam(value = "confirmPassword", required=false) String confirmPassword,
+			Model model, HttpSession session){
 			
 		
 		// check form
@@ -49,6 +53,9 @@ public class Register {
 		user.setMaanden(populate.getMaanden());
 		user.setUsername(username);
 		user.setPassword(newPassword);
+		
+		session.setAttribute("username",username);
+		session.setAttribute("password", newPassword);
 		
 		//add user to database
 		if(user.getMaanden().isEmpty() == false){

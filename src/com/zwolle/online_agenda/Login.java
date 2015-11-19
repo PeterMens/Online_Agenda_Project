@@ -61,7 +61,7 @@ public class Login {
 		//password = passwordInput;
 		//username = usernameInput;
 			
-		return "redirect: /calendar";
+		return "redirect:calendar";
 		
 		}
 	}

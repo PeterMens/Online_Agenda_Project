@@ -11,10 +11,25 @@
 <body>
 <DIV ALIGN="center"><h1>Online Agenda</h1></DIV>
 
+<form:form id="loginform" method="POST" modelAttribute="user">
 
-	<DIV ALIGN="center"><form><h4>Username<input></h4></form></DIV>
-	<DIV ALIGN="center"><form><h4>Password<input></h4></form></DIV>
+<DIV ALIGN="center"><TABLE>
+	<TBODY>
+		<TR>
+			<TD><DIV ALIGN="center"><h4>User Name</h4></DIV></TD>
+			<TD><input name="usernameInput"> </TD>
+		</TR>
+		<TR>
+			<TD><DIV ALIGN="center"><h4>Password</h4></DIV></TD>
+			<TD><input type="password" name="passwordInput"></TD>
+		</TR>
+	
+</TABLE></DIV>	
+<TD><DIV ALIGN="center"><h4>${usernameEmpty}${passwordEmpty}${invalidUsername}${invalidPassword}</h4></DIV></TD>
+<DIV ALIGN="center"><input type="submit" value="Log in"></DIV>
+</form:form>
 
+	
 <DIV ALIGN="center"><a href="<c:url value="/register"/>"><h4>Register new user</h4></a></DIV>
 
 </body>

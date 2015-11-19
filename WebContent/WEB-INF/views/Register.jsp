@@ -22,11 +22,11 @@
 		</TR>
 		<TR>
 			<TD><DIV ALIGN="center"><h4>New Password</h4></DIV></TD>
-			<TD><input name="newPassword"></TD>
+			<TD><input type="password" name="newPassword"></TD>
 		</TR>
 		<TR>
 			<TD><DIV ALIGN="center"><h4>Confirm Password</h4></DIV></TD>
-			<TD><input name="confirmPassword"></TD>
+			<TD><input type="password" name="confirmPassword"></TD>
 		</TR>
 </TABLE></DIV>	
 <TD><DIV ALIGN="center"><h4>${usernameEmpty}${passwordEmpty}${noMatch}</h4></DIV></TD>

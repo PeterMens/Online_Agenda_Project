@@ -17,8 +17,6 @@ public class Register {
 // koppel database met username+password
 	
 	
-	private Model model;
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public String register(){
 			return "Register";
@@ -48,6 +46,7 @@ public class Register {
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(newPassword);
+		
 		
 		//create database 
 		// add month in user

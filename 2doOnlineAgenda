@@ -1,11 +1,20 @@
 
-* login scherm maken 
+Register
+* username + password naar database schrijven
 * bij aanmaken nieuwe gebruiker -> database genereren
-* bij inlog die gebruiker, die database ophalen
 
+Login
+* bij inlog password + username check uit database
+* als check klopt, agenda van user ophalen uit database
+
+Calendar
 * notities toevoegen aan day objecten en naar database opslaan.
 * volgende keer als je ze ophaalt, notities tonen
+
+
+Layout
 * fancy buttons maken met buttongenerator, css bestandje maken die tag bij me links gooien
+* evt. Bootstrap
 
 
 

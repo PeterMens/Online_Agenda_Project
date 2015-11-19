@@ -5,7 +5,9 @@ Register
 
 Login
 * bij inlog password + username check uit database: DIT WERKT
-* als check klopt, agenda van user ophalen uit database
+* calender wordt dynamisch opgehaald! DIT WERKT
+* als check klopt, agenda van user ophalen uit database (KOPPELING MIST VAN USER NAAR OPHALEN DATABASE = nu hardcoded)
+
 
 Calendar
 * notities toevoegen aan day objecten en naar database opslaan.
@@ -18,7 +20,7 @@ Layout
 
 
 Finishing touch
-* Opruimen code
+* Opruimen code (MonthDAO needed?)
 * Creeren javadocs
 * meerdere packages maken voor jsp/controllers/pojo's
 * Interceptor toevoegen for form inputs
@@ -29,3 +31,4 @@ Finishing touch
 * Week nummers kloppen niet
 * Als de gegenereerde jaren op zijn -> hardcoded JSP page met melding, dynamisch maken.
 * CSS wordt niet ingeladen
+* pass + username invoeren op Login, als dit niet klopt, vaak nullpointer!? iets met check?

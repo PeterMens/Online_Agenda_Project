@@ -1,6 +1,5 @@
 package com.zwolle.online_agenda;
 
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class PopulateCalendar{

@@ -1,35 +1,22 @@
 package com.zwolle.online_agenda;
 
-import java.util.ArrayList;
-
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
+@SessionAttributes("myRequestObject")
 public class JSPController {
+	
 	
 	private int monthNumber, yearNumber;	
 	private String [] months = {"January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"};
-	
-	
-	
-	public JSPController(){
-		
-	}
-	
-	//Constuctor
-	public JSPController (String username, String password){
-		
-		
-	}
-	
 	
 	//set header month
 		public String getMonthHeader(int month){
@@ -38,7 +25,7 @@ public class JSPController {
 
 	//controller for nextMonth
 	@RequestMapping("/calendar/nextmonth")
-	public String nextMonth (Model model){
+	public String nextMonth (Model model, HttpSession session){
 		
 		if (monthNumber == 11) {
 			yearNumber++;
@@ -47,31 +34,33 @@ public class JSPController {
 			//hardcoded! errorpage if year is not there to generate 
 			if (yearNumber > 2025 ){ return "YearNotGenerated";}
 			
-			System.out.println("Maand on nextclick = " + monthNumber);
-			System.out.println("Jaar on nextclick = " + yearNumber);
+			String username = session.getAttribute("username").toString();
+			String password = session.getAttribute("password").toString();
 			
 			model.addAttribute("month", getMonthHeader(monthNumber));
-			model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
-			model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
+			model.addAttribute("year", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getYear());
+			model.addAttribute("generateMonth", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getWeken());
+
+			return "Calendar";
 		
 			} else {
 			
 			monthNumber++;
 			
-			System.out.println("Maand on nextclick = " + monthNumber);
-			System.out.println("Jaar on nextclick = " + yearNumber);
+			String username = session.getAttribute("username").toString();
+			String password = session.getAttribute("password").toString();
 			
 			model.addAttribute("month", getMonthHeader(monthNumber));
-			model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
-			model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
+			model.addAttribute("year", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getYear());
+			model.addAttribute("generateMonth", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getWeken());
+
+			return "Calendar";
 		}
-		
-		return "Calendar";
 	}
 	
 	//controller for previousMonth
 		@RequestMapping("/calendar/previousmonth")
-		public String lastMonth (Model model){
+		public String lastMonth (Model model, HttpSession session){
 			
 			if (monthNumber == 0) {
 				
@@ -81,49 +70,47 @@ public class JSPController {
 				//hardcoded! errorpage if year is not there to generate 
 				if (yearNumber < 2015 ){ return "YearNotGenerated";}
 				
-				System.out.println("Maand on previousclick = " + monthNumber);
-				System.out.println("Jaar on previousclick = " + yearNumber);
+				
+				String username = session.getAttribute("username").toString();
+				String password = session.getAttribute("password").toString();
 				
 				model.addAttribute("month", getMonthHeader(monthNumber));
-				model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
-				model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
+				model.addAttribute("year", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getYear());
+				model.addAttribute("generateMonth", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getWeken());
+
+				return "Calendar";
 			
 			} else {
 				monthNumber--;
 				
-				System.out.println("Maand on previousclick = " + monthNumber);
-				System.out.println("Jaar on previousclick = " + yearNumber);
+				String username = session.getAttribute("username").toString();
+				String password = session.getAttribute("password").toString();
 				
 				model.addAttribute("month", getMonthHeader(monthNumber));
-				model.addAttribute("year", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getYear());
-				model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
-				
+				model.addAttribute("year", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getYear());
+				model.addAttribute("generateMonth", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getWeken());
+
+				return "Calendar";
 			}
-			
-			return "Calendar";
 		}
 			
 	
 	//controller for /calendar
 	@RequestMapping("/calendar")
-	public String calendar (Model model) {
+	public String calendar (Model model, HttpSession session){
 	
 		RealDate date = new RealDate();
 		date.getDate();
 		monthNumber = date.getRealMonth();
 		yearNumber = date.getRealYear();
 		
-		//model.addAttribute("month", getMonthHeader(monthNumber));
-		//model.addAttribute("year", ;)
+		String username = session.getAttribute("username").toString();
+		String password = session.getAttribute("password").toString();
 		
-	
-		
-		
-		model.addAttribute("generateMonth", RegisterDAO.findUserByUsernameAndPassword("Nicole","hallo").getMaanden().get(monthNumber).getWeken());
-		
-		
-		//model.addAttribute("generateMonth", MonthDao.findMonthByYearAndMonthNumber(yearNumber, monthNumber).getWeken());
-		
+		model.addAttribute("month", getMonthHeader(monthNumber));
+		model.addAttribute("year", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getYear());
+		model.addAttribute("generateMonth", RegisterDAO.findUserByUsernameAndPassword(username,password).getMaanden().get(monthNumber).getWeken());
+
 		return "Calendar";
 	}
 	

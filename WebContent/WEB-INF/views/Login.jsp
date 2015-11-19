@@ -25,7 +25,7 @@
 		</TR>
 	
 </TABLE></DIV>	
-<TD><DIV ALIGN="center"><h4>${usernameEmpty}${passwordEmpty}${invalidUsername}${invalidPassword}</h4></DIV></TD>
+<TD><DIV ALIGN="center"><font color= "red" ><h4>${usernameEmpty}${passwordEmpty}${invalidUsername}${invalidPassword}</h4></font></DIV></TD>
 <DIV ALIGN="center"><input type="submit" value="Log in"></DIV>
 </form:form>
 

@@ -16,8 +16,6 @@
 <p><input type="submit" value="Submit Note"></p>
 </form:form></DIV>
 	
-** default textveld groter zetten
-
 **  display note :) ${getNote}
  
 **  back to calendar button

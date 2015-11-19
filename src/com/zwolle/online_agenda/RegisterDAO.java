@@ -40,6 +40,7 @@ public abstract class RegisterDAO {
 			return user;
 		}
 		
+		
 		// Verwijder een user uit de database
 		public static void remove(Long id){
 			EntityManager em = emf.createEntityManager();
